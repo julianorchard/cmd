@@ -4,4 +4,6 @@ tools/wip/** linguist-vendored
 tools/archive/** linguist-vendored
 # .ahk Files, Mainly
 ahk/temp/** linguist-vendored
-
+# Keep Local
+wallpapers/current.bmp merge=ours
+wallpapers/current.jpg merge=ours
