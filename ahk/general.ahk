@@ -34,7 +34,8 @@ Desciption: General AutoHotkey Bindings
 			WinKill, %OutputVar%
 		Return
 	; Enter to start custom CMD 
-		!Enter:: Run "C:\CMD\cmdrc.bat"
+		#IfWinNotActive, ahk_class Microsoft Excel
+      !Enter:: Run "C:\CMD\cmdrc.bat"
 	; Start Enter to Run Git Bash
 		#!Enter:: Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Git\Git Bash"
 	; Run Firefox with Alt+F
@@ -310,4 +311,3 @@ Desciption: General AutoHotkey Bindings
 				lock(0)
 			}
 		Return
-

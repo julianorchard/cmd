@@ -1,11 +1,24 @@
+# ---------------------------------------------------
+# General (Tools) -----------------------------------
 tools/remote.bat
 tools/smol/*vim*
 tools/smol/*view*
+# ---------------------------------------------------
+# Script Populates This On A System By System Basis -
 shortcuts
+# ---------------------------------------------------
+# Swapfiles (shouldn't have any with my .vimrc) -----
 *~
 *.swp
 *.swo
+# ---------------------------------------------------
+# BIN folder: Exe's, XML's and ICC's Stored as Zip --
 **.exe
 bin/*.xml
 bin/*.icc
+# ---------------------------------------------------
+# Wallpapers: no need for .bmp or submodule ---------
+wallpapers/current.bmp
 wallpapers/files/**
+wallpapers/bin/*.txt
+# ---------------------------------------------------
