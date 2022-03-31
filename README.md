@@ -1,4 +1,4 @@
-![Another example of the desktop](wallpapers/Examples/Examples-2.jpg)
+![Another example of the current desktop](wallpapers/current.bmp)
 
 # CMD (Windows Config)
 
@@ -78,12 +78,8 @@ Windows machines.
 
 ### Wallpapers (`\wallpapers`)
 
-![Example of what my desktop on Windows looks like, using papetime.vbs](wallpapers/Examples/Examples-1.jpg)
-
 A few nice scripts to manage my wallpapers. Wallpapers aren't in this repo
-(there's some examples, as above). `papesort.sh` renames all the images in the
-folder to match the folder name, `papetime.vbs` overlays text using
-ImageMagick, and I regret writing it in VBScript (it really wasn't the best
-idea...).
-
+(there's some examples, as above). A Powershell
+Script adds text to the image at `current.jpg` and
+saves and sets it as `current.bmp`.
 

@@ -18,7 +18,6 @@ bin/*.xml
 bin/*.icc
 # ---------------------------------------------------
 # Wallpapers: no need for .bmp or submodule ---------
-wallpapers/current.bmp
 wallpapers/files/**
 wallpapers/bin/*.txt
 # ---------------------------------------------------
