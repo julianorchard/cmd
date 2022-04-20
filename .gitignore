@@ -1,23 +1,28 @@
-# ---------------------------------------------------
-# General (Tools) -----------------------------------
-tools/remote.bat
-tools/smol/*vim*
-tools/smol/*view*
-# ---------------------------------------------------
-# Script Populates This On A System By System Basis -
+# ------------------------------------------------------
+# File:       .gitignore
+# Author:     Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:  2022-04-20
+# Desciption: gitignore certain files...
+# ------------------------------------------------------
+# General (Tools) --------------------------------------
+bat/remote.bat
+bat/smol/*view*
+bat/smol/*vim*
+# ------------------------------------------------------
+# Script Populates This On A System By System Basis ----
 shortcuts
-# ---------------------------------------------------
-# Swapfiles (shouldn't have any with my .vimrc) -----
+# ------------------------------------------------------
+# Swapfiles (shouldn't have any with my .vimrc) --------
 *~
 *.swp
 *.swo
-# ---------------------------------------------------
-# BIN folder: Exe's, XML's and ICC's Stored as Zip --
+# ------------------------------------------------------
+# BIN folder: Exe's, XML's and ICC's Stored as Zip -----
 **.exe
 bin/*.xml
 bin/*.icc
-# ---------------------------------------------------
-# Wallpapers: no need for .bmp or submodule ---------
+# ------------------------------------------------------
+# Wallpapers: no need for .bmp or submodule ------------
 wallpapers/files/**
 wallpapers/bin/*.txt
-# ---------------------------------------------------
+# ------------------------------------------------------

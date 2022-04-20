@@ -26,7 +26,7 @@ Desciption: General AutoHotkey Bindings
 	; Volume Key; Add Sound Effect
 		~Volume_Up::
 		~Volume_Down::
-			SoundPlay, C:\CMD\ahk\res\bing-1.wav
+			SoundPlay, C:\cmd\ahk\res\bing-1.wav
 		Return
 	; q to close current window 
 		!q::
@@ -35,7 +35,7 @@ Desciption: General AutoHotkey Bindings
 		Return
 	; Enter to start custom CMD 
 		#IfWinNotActive, ahk_class Microsoft Excel
-      !Enter:: Run "C:\CMD\cmdrc.bat"
+      !Enter:: Run "C:\cmd\bat\cmdrc.bat"
 	; Start Enter to Run Git Bash
 		#!Enter:: Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Git\Git Bash"
 	; Run Firefox with Alt+F
@@ -128,7 +128,7 @@ Desciption: General AutoHotkey Bindings
     !F7::
       serious := [] 
       lines := 0
-      Loop, Read, C:\CMD\ahk\res\serious.txt
+      Loop, Read, C:\cmd\ahk\res\serious.txt
       {
         serious.Push(A_LoopReadLine) 
         lines++ 
@@ -140,7 +140,7 @@ Desciption: General AutoHotkey Bindings
     !F8::
       silly := [] 
       lines := 0
-      Loop, Read, C:\CMD\ahk\res\silly.txt
+      Loop, Read, C:\cmd\ahk\res\silly.txt
       {
         silly.Push(A_LoopReadLine) 
         lines++ 
@@ -153,7 +153,7 @@ Desciption: General AutoHotkey Bindings
     !F9::
       linkedin := [] 
       lines := 0
-      Loop, Read, C:\CMD\ahk\res\linkedin.txt
+      Loop, Read, C:\cmd\ahk\res\linkedin.txt
       {
         linkedin.Push(A_LoopReadLine) 
         lines++ 

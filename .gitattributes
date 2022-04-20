@@ -1,9 +1,17 @@
-# Better Reflecting the Composition of the Repo
-# .ps1 Files, Mainly
-tools/wip/** linguist-vendored
-tools/archive/** linguist-vendored
-# .ahk Files, Mainly
+# ---------------------------------------------------------
+# File:       .gitattributes
+# Author:     Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:  2022-04-20
+# Desciption: Better reflecting the composition of the repo
+# ---------------------------------------------------------
+# bat folder stuff ----------------------------------------
+bat/wip/** linguist-vendored
+bat/archive/** linguist-vendored
+# ---------------------------------------------------------
+# .ahk Files, Mainly --------------------------------------
 ahk/temp/** linguist-vendored
-# Keep Local
+# ---------------------------------------------------------
+# Keep Local ----------------------------------------------
 wallpapers/current.bmp merge=ours
 wallpapers/current.jpg merge=ours
+# ---------------------------------------------------------
