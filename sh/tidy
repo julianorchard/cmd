@@ -19,6 +19,7 @@ def usage
   puts
     puts "    -d         default; everything other than r"
     puts "    -b         remove brackets from filename"
+    puts "    -e         normalize file extension"
     puts "    -s         replace spaces with dashes"
     puts "    -l         to lowercase"
     puts "    -r         act recursively"
@@ -37,12 +38,13 @@ def tidy
   puts
   puts "Changing files in " + current_dir + ": "
   if ARGV.include? "d"
-    b_flag = s_flag = l_flag = true
+    b_flag = s_flag = l_flag = e_flag = true
     working_dir =  "*"
   else
     b_flag = true if ARGV.include? "b" # Brackets
     s_flag = true if ARGV.include? "s" # Dashes
     l_flag = true if ARGV.include? "l" # Lowercase
+    e_flag = true if ARGV.include? "e" # Extension
     if ARGV.include? "r"
       working_dir = "**/*" # Recursive
     else
@@ -63,6 +65,16 @@ def tidy
 
   # Lowercase
     file_rename = file_rename.downcase
+
+  # Normalise File Extension
+    if e_flag == true
+      case file_rename
+      when /\.jpeg/
+        file_rename = file_rename.gsub(".jpeg", ".jpg")
+      when /\.cmd/
+        file_rename = file_rename.gsub(".cmd", ".bat")
+      end
+    end 
 
   # Rename, Output
     File.rename(current_file, current_dir + "/" + file_rename)
