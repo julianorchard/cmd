@@ -70,13 +70,7 @@ All of the tools, pretty much always batch. Most should have good descriptions f
     `msgBox.vbs` to notify you when it thinks your
     connection is re-established
 
-### VBA (`\vba`)
-
-This contains some of my more useful snippets of VBA code. Kept in this repo
-because I needed to store it somewhere, and it's nice to have on hand when using
-Windows machines. 
-
-### Wallpapers (`\wallpapers`)
+### Wallpapers *([\wallpapers](https://github.com/julianorchard/cmd/tree/main/wallpapers)]*
 
 A few nice scripts to manage my wallpapers. Wallpapers aren't in this repo
 (there's some examples, as above). A Powershell
