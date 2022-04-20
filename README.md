@@ -46,31 +46,61 @@ lock IT Policy with `Alt + L` (for Lock) and `Alt + I` (for Idle)
 
 ### Hours (`\hours`)
 
+![usage of cl command](screenshot.png)
+
 This is a VBScript program that writes my hours to a CSV file and just lets me
 track hours worked very easily from the command line. More information is in the
 folder.
 
-### Tools (`\tools`)
+### Language Folders
 
-All of the tools, pretty much always batch. Most should have good descriptions for what they do, but some of the most useful ones include:
+This repo mainly contains Batch, Powershell,
+AutoHotkey, and some Shell/Ruby/Unix-y scripts: 
 
-- `renr.bat` : ren (rename) but recursively
-- `ll.bat` : lists files and folders nicely
-- `gui.bat` : open current location in windows explorer
-- `search.bat` : file search on the command line
-- `shortcut.bat` and `drives.bat` : create shortcuts to folders or drives with minimal effort (for use in the command line; just type 'c', to take you to C:\, etc. - works out what drives are actually available so you're not binding random letters for no reason)
-- `addpath.bat` : add a folder to the path environment, and then refresh using `refresh.bat` (stolen from [Chocolatey](https://github.com/chocolatey/choco/blob/b6495f72d1f2b9901747d857467c4ed3f7306391/src/chocolatey.resources/redirects/RefreshEnv.cmd))
-- `layout`/`mklayout`: create and deploy a folder
-    layout to be reused (useful if you're
-    repeating folder structure for some reason; I
-    needed it)
-- `amiconnected.bat`: Used to test if your internet is
-    connected; accepts an address to ping, and accepts
-    `notify` as an argument, which will run
-    `msgBox.vbs` to notify you when it thinks your
-    connection is re-established
+#### AutoHotkey (`\ahk`)
 
-### Wallpapers *([\wallpapers](https://github.com/julianorchard/cmd/tree/main/wallpapers)]*
+There's quite a lot in this folder, but it's mainly all in `General.ahk`; feel
+free to have a read of the file as it's *fairly* well annotated. Some of the
+features of this file include: 
+
+- Drawing boxes around stuff with `Alt + B`, and
+    underline stuff with `Alt + U` (*very* useful for the
+    snipping tool)
+- Insert date/time and random underline stuff,
+    sign emails etc.
+- Run certain folders with `Alt + E`, to replicate
+    the normal Windows `Start + E` functionality,
+    but better (e.g. `Alt + E` then `C` opens `C:\Users\USER\`)
+
+#### Batch Scripts (`\bat`)
+
+Unsurprisingly, `\bat` mainly contains Batch
+Scripts, including: 
+
+- `amiconnected.bat`, checks network connection
+via ping; notifies when connection seems to be
+reestabilshed (using `\bin\msgBox.vbs`)
+
+- `drives.bat` and `shortcut.bat` map shortcuts to
+be placed in a folder (gitignored
+`\cmd\shortcuts`) to quickly navigate around using
+CMD
+
+- `numbereddomainsearch.bat`, searches numerical
+with numbers in to find out how many of them are
+pingable
+
+#### Shell/Unix-y Scripts (`\sh`)
+
+More recently I've been using Mintty more than
+CMD/Powershell, and as a result, I've been writing
+more Unix-y scripts. This is where they're stored. 
+
+- `tidy`, a Ruby script I use to rename files that
+have been mauled by Windows File Explorer's bulk
+renaming...
+
+### Wallpapers ([\wallpapers](https://github.com/julianorchard/cmd/tree/main/wallpapers))
 
 A few nice scripts to manage my wallpapers. Wallpapers aren't in this repo
 (there's some examples, as above). A Powershell
