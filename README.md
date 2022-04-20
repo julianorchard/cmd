@@ -27,26 +27,9 @@ just add all the important folders to PATH.
 Some of the folders don't contain much interesting stuff, but I'll mention some
 of the most used/important scripts below: 
 
-### AutoHotkey (`\ahk`)
-
-There's quite a lot in this folder, but it's mainly all in `General.ahk`; feel
-free to have a read of the file as it's *fairly* well annotated. Some of the
-features of this file include: 
-
-- Drawing boxes around stuff with `Alt + B`, and
-    underline stuff with `Alt + U` (*very* useful for the
-    snipping tool)
-- Insert date/time and random underline stuff,
-    sign emails etc.
-- Run certain folders with `Alt + E`, to replicate
-    the normal Windows `Start + E` functionality,
-    but better (e.g. `Alt + E` then `C` opens `C:\Users\USER\`)
-- Disable Keyboard and Mouse clicking, and refresh the screen to bypass screen
-lock IT Policy with `Alt + L` (for Lock) and `Alt + I` (for Idle)
-
 ### Hours (`\hours`)
 
-![usage of cl command](screenshot.png)
+![usage of cl command](hours/screenshot.png)
 
 This is a VBScript program that writes my hours to a CSV file and just lets me
 track hours worked very easily from the command line. More information is in the
