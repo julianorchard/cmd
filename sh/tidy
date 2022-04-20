@@ -74,3 +74,4 @@ end
 # Tidy
   tidy
 
+# vi: ft=ruby
