@@ -1,0 +1,76 @@
+#!/c/MAMP/bin/ruby/bin/ruby.exe 
+#####!/usr/bin/env ruby
+
+#   File:       tidy
+#   Author:     Julian Orchard <hello@julianorchard.co.uk>
+#   Tag Added:  2022-04-19
+#   Desciption: Makes Windows File Bulk Renaming Neater
+
+def usage
+  puts
+    puts "---------------------------------------------"
+    puts "Tidy: Makes Windows File Bulk Renaming Neater"
+    puts "---------------------------------------------"
+  puts
+    puts "Designed to be used after bulk renaming files using"
+    puts "the Windows Explorer prompt."
+  puts
+    puts "Arguments: "
+  puts
+    puts "    -d         default; everything other than r"
+    puts "    -b         remove brackets from filename"
+    puts "    -s         replace spaces with dashes"
+    puts "    -l         to lowercase"
+    puts "    -r         act recursively"
+  puts
+  exit
+end
+
+def tidy
+  current_dir = Dir.pwd
+  b_flag = s_flag = l_flag = false
+
+# Help
+  usage if ARGV.include? "h" or ARGV.empty?
+
+# Opts
+  puts
+  puts "Changing files in " + current_dir + ": "
+  if ARGV.include? "d"
+    b_flag = s_flag = l_flag = true
+    working_dir =  "*"
+  else
+    b_flag = true if ARGV.include? "b" # Brackets
+    s_flag = true if ARGV.include? "s" # Dashes
+    l_flag = true if ARGV.include? "l" # Lowercase
+    if ARGV.include? "r"
+      working_dir = "**/*" # Recursive
+    else
+      working_dir = "*"
+    end
+  end
+  puts
+
+  Dir.glob(working_dir) do |current_file|
+    next if current_file == "." or current_file == ".." or File.directory?(current_file)
+    file_rename = current_file
+
+  # Brackets
+    file_rename = file_rename.gsub("(", "").gsub(")", "") if b_flag == true
+
+  # Spaces
+    file_rename = file_rename.gsub(" ", "-") if s_flag == true
+
+  # Lowercase
+    file_rename = file_rename.downcase
+
+  # Rename, Output
+    File.rename(current_file, current_dir + "/" + file_rename)
+    puts "    ->  " + current_file + "  =>  " + file_rename
+  end 
+  puts
+end
+
+# Tidy
+  tidy
+
