@@ -1,10 +1,12 @@
 #!/c/MAMP/bin/ruby/bin/ruby.exe 
-#####!/usr/bin/env ruby
+#####!/usr/bin/env ruby :(
 
-#   File:       tidy
-#   Author:     Julian Orchard <hello@julianorchard.co.uk>
-#   Tag Added:  2022-04-19
-#   Desciption: Makes Windows File Bulk Renaming Neater
+#   File:        tidy
+#   Author:      Julian Orchard <hello@julianorchard.co.uk>
+#   Tag Added:   2022-04-22
+#   Description: Ruby script to rename files that have been 
+#                mauled by Windows File Explorer's bulk
+#                renaming, e.g. (file (1).jpg, file (2).jpg, etc.)
 
 def usage
   puts

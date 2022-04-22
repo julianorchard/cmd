@@ -1,8 +1,8 @@
 /* 
-File:       bakkesmod.ahk
-Author:     Julian Orchard [hello@julianorchard.co.uk]
-Tag Added:  2022-02-24
-Desciption: Run Bakkesmod when Rocket League opens
+  File:        bakkesmod.ahk
+  Author:      Julian Orchard <hello@julianorchard.co.uk>
+  Tag Added:   2022-02-24
+  Description: Run Bakkesmod when Rocket League opens
  */
 #Persistent
 ; Check Every Half Minute

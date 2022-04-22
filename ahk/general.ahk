@@ -1,8 +1,8 @@
 ﻿/* 
-File:       ahk
-Author:     Julian Orchard [hello@julianorchard.co.uk]
-Tag Added:  2022-02-24
-Desciption: General AutoHotkey Bindings
+  File:        general.ahk
+  Author:      Julian Orchard <hello@julianorchard.co.uk>
+  Tag Added:   2022-02-24
+  Description: General AutoHotkey Bindings
 */
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

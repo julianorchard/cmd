@@ -1,5 +1,4 @@
-﻿
-^!m:: 
+﻿^!m:: 
 Loop, 40 
 { 
 	if stopit = 1

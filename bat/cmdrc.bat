@@ -1,12 +1,13 @@
 @echo off
-::  File:       cmdrc.bat
-::  Author:     Julian Orchard [hello@julianorchard.co.uk]
-::  Tag Added:  2022-02-24
-::  Desciption: Similar to .bashrc
+:: File:        cmdrc.bat
+:: Author:      Julian Orchard <hello@julianorchard.co.uk>
+:: Tag Added:   2022-04-22
+:: Description: Similar to .bashrc
 ::              File used to change the look of the windows terminal
 ::              Launched with Alt + Enter, from an AutoHotkey script
-:: https://superuser.com/questions/144347/
-:: is-there-windows-equivalent-to-the-bashrc-file-in-linux/916478#916478
+::              https://superuser.com/questions/144347/
+::              is-there-windows-equivalent-to-the-bashrc-file-in-linux/
+::              916478#916478
 
 :: Get Current Git Username
     for /f "tokens=* usebackq" %%f in (`git config user.email`) do (

@@ -1,8 +1,8 @@
 @echo off
- ::  File:       addpath.bat
- ::  Author:     Julian Orchard [hello@julianorchard.co.uk]
- ::  Tag Added:  2022-02-24
- ::  Desciption: Add current DIR to PATH
+:: File:        addpath.bat
+:: Author:      Julian Orchard <hello@julianorchard.co.uk>
+:: Tag Added:   2022-04-22
+:: Description: Add current directory to PATH.
 
 :: Get Args
   set add=%1

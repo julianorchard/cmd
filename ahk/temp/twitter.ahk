@@ -1,8 +1,8 @@
 /* 
-File:       twitter.ahk
-Author:     Julian Orchard <hello@julianorchard.co.uk>
-Tag Added:  2022-03-09
-Desciption: Semi-manually looking for handles
+  File:        twitter.ahk
+  Author:      Julian Orchard <hello@julianorchard.co.uk>
+  Tag Added:   2022-03-09
+  Description: Semi-manually looking for handles
 */
 
 #!g::

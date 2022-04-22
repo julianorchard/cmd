@@ -1,10 +1,10 @@
 @echo off
- ::  File:       numbereddomainsearch.bat
- ::  Author:     Julian Orchard [hello@julianorchard.co.uk]
- ::  Tag Added:  2022-02-24
- ::  Desciption: Very specific tool to search for domains 
- ::              where there's a number, e.g. test1.com, test2.com, ..
- ::              see if they're all live/pingable
+:: File:        numbereddomainsearch.bat
+:: Author:      Julian Orchard <hello@julianorchard.co.uk>
+:: Tag Added:   2022-04-22
+:: Description: Very specific tool to search for domains 
+::              where there's a number, e.g. test1.com, test2.com, ..
+::              see if they're all live/pingable
 
 echo Numbered Domain Search
 echo.

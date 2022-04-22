@@ -1,10 +1,11 @@
 @echo off
 @setlocal enableextensions enabledelayedexpansion
- ::  File:       amiconnected.bat
- ::  Author:     Julian Orchard [hello@julianorchard.co.uk]
- ::  Tag Added:  2022-02-24
- ::  Desciption: Designed to notify you when the internet is 
- ::              back up and running (uses msgBox.vbs, in \cmd\bin).
+
+:: File:        amiconnected.bat
+:: Author:      Julian Orchard <hello@julianorchard.co.uk>
+:: Tag Added:   2022-04-22
+:: Description: Designed to notify you when the internet is 
+::              back up and running (uses msgBox.vbs, in \cmd\bin).
 
 echo.
 echo Try running with 'notify' as an argument. It will

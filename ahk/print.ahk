@@ -1,9 +1,9 @@
 /* 
-File:       print.ahk
-Author:     Julian Orchard [hello@julianorchard.co.uk]
-Tag Added:  2022-02-24
-Desciption: Works with Pinter.vbs and Explorer_Get.ahk
- */
+  File:        print.ahk
+  Author:      Julian Orchard <hello@julianorchard.co.uk>
+  Tag Added:   2022-02-24
+  Description: Works with Pinter.vbs and Explorer_Get.ahk
+*/
 ;   Ctrl + p to add a file to print list
 ;   Ctrl + o to print the files in the list
 

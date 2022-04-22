@@ -1,8 +1,8 @@
 /* 
-File:       twitch.ahk
-Author:     Julian Orchard [hello@julianorchard.co.uk]
-Tag Added:  2022-02-24
-Desciption: Bindings for Twitch Emotes
+  File:        twitch.ahk
+  Author:      Julian Orchard <hello@julianorchard.co.uk>
+  Tag Added:   2022-02-24
+  Description: Bindings for Twitch Emotes
  */
 
 ; 4 + char (for some reason)

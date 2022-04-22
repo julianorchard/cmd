@@ -1,9 +1,9 @@
 @echo off
- ::  File:       shortcut.bat
- ::  Author:     Julian Orchard [hello@julianorchard.co.uk]
- ::  Tag Added:  2022-02-24
- ::  Desciption: Create a shortcut to the current folder, and/or
- ::              set up some sensible defaults (bin, home, and dev)
+::   File:        shortcut.bat
+::   Author:      Julian Orchard <hello@julianorchard.co.uk>
+::   Tag Added:   2022-04-22
+::   Description: Create a shortcut to the current folder, and/or
+::                set up some sensible defaults (bin, home, and dev)
 
 :: Set Defaults
   set shortdir=C:\CMD\shortcuts
