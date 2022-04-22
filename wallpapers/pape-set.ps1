@@ -1,8 +1,8 @@
-# File:       pape-set.ps1
-# Author:     Julian Orchard <hello@julianorchard.co.uk>
-# Tag Added:  2022-03-22
-# Desciption: Rewriting my pape-set.vbs script in 
-#             Powershell (it sets the wallpaper more consistently)
+# File:        pape-set.ps1
+# Author:      Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:   2022-03-22
+# Description: Rewriting my pape-set.vbs script in 
+#              Powershell (it sets the wallpaper more consistently)
 
 # -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~- STR 1 FUNCTION -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
   function String-Line-One() 

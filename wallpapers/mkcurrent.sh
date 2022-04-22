@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# File:       mkcurrent.sh
-# Author:     Julian Orchard <hello@julianorchard.co.uk>
-# Tag Added:  2022-03-21
-# Desciption: Make the wallpaper (as argument) the current.jpg wallpaper.
+# File:        mkcurrent.sh
+# Author:      Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:   2022-03-21
+# Description: Make the wallpaper (as argument) the current.jpg wallpaper.
 
 colourstr=$(magick convert $1 +dither -colors 1 -unique-colors txt:)
 
