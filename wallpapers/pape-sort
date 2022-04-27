@@ -8,6 +8,7 @@
 #              'files/' folder (private repo)
 
 def main
+  done_renaming = true
   Dir.glob("files/*") do |d|
     next if File.file?(d)
     dir_name = d.split("/")[1]
@@ -26,8 +27,11 @@ def main
       original_path = Dir.pwd + "/" + f
       rename_path =  Dir.pwd + "/" + d + "/" + dir_name + "-" + f_num.to_s + File.extname(f)
       File.rename(original_path,rename_path)
+      done_renaming = false # We renamed something
     end
   end
+# Feedback if no renaming done
+  puts "Nothing to rename." if done_renaming
 end
 
 main
