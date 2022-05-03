@@ -1,10 +1,10 @@
-#!/c/MAMP/bin/ruby/bin/ruby.exe 
+#!/c/MAMP/bin/ruby/bin/ruby.exe
 #####!/usr/bin/env ruby :(
 
 # File:        pape-sort
 # Author:      Julian Orchard <hello@julianorchard.co.uk>
 # Tag Added:   2022-04-22
-# Description: Ruby script to sort wallpapers in 
+# Description: Ruby script to sort wallpapers in
 #              'files/' folder (private repo)
 
 def main
@@ -18,15 +18,16 @@ def main
       next\
         if File.basename(f, "-*").include? dir_name\
         or File.directory?(f)
-
     # Do the file renaming
-      puts "Renaming " + f
+      print "\nRenaming:    '" + f + "'   "
     # Gets the number of files in the directory
       f_num = Dir[File.join(d, '*')].count { |file| File.file?(file) }
     # Paths and rename
       original_path = Dir.pwd + "/" + f
       rename_path =  Dir.pwd + "/" + d + "/" + dir_name + "-" + f_num.to_s + File.extname(f)
-      File.rename(original_path,rename_path)
+    # Show Renamed Name
+      print "'" + d + "/" + dir_name + "-" + f_num.to_s + File.extname(f) + "'\n"
+      File.rename(original_path, rename_path)
       done_renaming = false # We renamed something
     end
   end

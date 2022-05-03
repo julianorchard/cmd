@@ -1,4 +1,4 @@
-﻿/* 
+﻿/*
   File:        general.ahk
   Author:      Julian Orchard <hello@julianorchard.co.uk>
   Tag Added:   2022-02-24
@@ -12,9 +12,9 @@
   ;;;                          ;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ; File Notes: 
+  ; File Notes:
     ; #: win
-    ; !: alt  
+    ; !: alt
     ; ^: ctrl
     ; +: shift
     ; *: wildcard
@@ -28,12 +28,12 @@
 		~Volume_Down::
 			SoundPlay, C:\cmd\ahk\res\bing-1.wav
 		Return
-	; q to close current window 
+	; q to close current window
 		!q::
 			WinGetActiveTitle, OutputVar
 			WinKill, %OutputVar%
 		Return
-	; Enter to start custom CMD 
+	; Enter to start custom CMD
 		#IfWinNotActive, ahk_class Microsoft Excel
       !Enter:: Run "C:\cmd\bat\cmdrc.bat"
 	; Start Enter to Run Git Bash
@@ -50,8 +50,8 @@
 			If ErrorLevel
 				{
 					MsgBox, "Snipping tool did not open as expected."
-				} 
-			Else 
+				}
+			Else
 				{
 					Send, {ctrl down}{n down}
 					Send, {ctrl up}{n up}
@@ -85,7 +85,7 @@
 		Return
 
 ; Line Break / <hr>'s
-  ; = Insert  -+-  -+-  -+-  -+-  -+-  -+-  -+-  -+- 
+  ; = Insert  -+-  -+-  -+-  -+-  -+-  -+-  -+-  -+-
     !=::
       Loop, 8
       {
@@ -94,9 +94,9 @@
     Return
   ; ~ Insert -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     !#::
-      Loop, 16 
-      { 
-        Send, -~ 
+      Loop, 16
+      {
+        Send, -~
       }
       Send, -
     Return
@@ -120,43 +120,43 @@
       send %time%
     Return
   ; F6 Insert Time
-    !F6:: 
+    !F6::
       FormatTime, time, A_now, ddd d-MMM-yy hh:mm tt
-      Send %time% ~ JO : {Enter} 
+      Send %time% ~ JO : {Enter}
     Return
   ; Insert a random, serious sign off
     !F7::
-      serious := [] 
+      serious := []
       lines := 0
       Loop, Read, C:\cmd\ahk\res\serious.txt
       {
-        serious.Push(A_LoopReadLine) 
-        lines++ 
+        serious.Push(A_LoopReadLine)
+        lines++
       }
       Random, randum, 0, %lines%
       Send, % serious[randum]
     Return
-  ; Insert a random, silly sign off - X regards, 
+  ; Insert a random, silly sign off - X regards,
     !F8::
-      silly := [] 
+      silly := []
       lines := 0
       Loop, Read, C:\cmd\ahk\res\silly.txt
       {
-        silly.Push(A_LoopReadLine) 
-        lines++ 
+        silly.Push(A_LoopReadLine)
+        lines++
       }
       Random, randum, 0, %lines%
       Send, % silly[randum]
-      Send, {space}regards, 
+      Send, {space}regards,
     Return
   ; Insert a random, LinkedIn Style Message
     !F9::
-      linkedin := [] 
+      linkedin := []
       lines := 0
       Loop, Read, C:\cmd\ahk\res\linkedin.txt
       {
-        linkedin.Push(A_LoopReadLine) 
-        lines++ 
+        linkedin.Push(A_LoopReadLine)
+        lines++
       }
       Random, randum, 0, %lines%
       Send, % linkedin[randum]
@@ -168,25 +168,25 @@
 			SendInput, %clipboard%
 			Clipboard:=""
 		Return
-  ; Alt+F12 to hide the taskbar entirely 
+  ; Alt+F12 to hide the taskbar entirely
     ; Edited from; https://www.autohotkey.com/board/topic/83594-how-to-hide-taskbar-with-hotkey/
     ; !!! Works only really when the taskbar will autohide in desktop mode !!!
     !F12::
       WinExist("ahk_class Shell_TrayWnd")
       Tog := !Tog
-      if (Tog = "1") 
+      if (Tog = "1")
       {
         ; This is what I've added...
         SetTimer, CheckForBar, 1000
         CheckForBar:
-          if WinExist("ahk_class Shell_TrayWnd") 
+          if WinExist("ahk_class Shell_TrayWnd")
           {
             WinHide, ahk_class Shell_TrayWnd
             WinHide, Start ahk_class Button
           }
         Return
-      } 
-      else 
+      }
+      else
       {
         SetTimer, CheckForBar, Off ; Also this, ofc
         WinShow, ahk_class Shell_TrayWnd
@@ -213,7 +213,7 @@
 			Gui, -Caption
 			Gui, Margin, 100, 30
 			Gui, Font, s12, Segoe UI
-			Gui, Add, Text,, Alt+E locations you can open (bindings below): 
+			Gui, Add, Text,, Alt+E locations you can open (bindings below):
 			Gui, Font, s10, Consolas
 			Gui, Add, Text,, - binding:    C   =     C:\Users\%A_UserName%\
 			Gui, Add, Text,, - binding:    W   =     C:\Users\%A_UserName%\Documents\Website\
@@ -254,16 +254,16 @@
 	Return
 
 ; Screen Refresher and Lock (Alt+I and Alt+L)
-	; Alt+I toggles sending RAlt every 15 seconds 
+	; Alt+I toggles sending RAlt every 15 seconds
 	; keep machine idle, without activating policy
-	; enforced screensaver 
-			!i:: 
+	; enforced screensaver
+			!i::
 				idltog := !idltog
-				if (idltog = "1") 
+				if (idltog = "1")
 				{
 					TrayTip, Screen Refresher On, The screen refresher has been enabled.
 					SetTimer, KeepAlive, 15000
-					KeepAlive: 
+					KeepAlive:
 						Send, {RAlt}
 					Return
 				}
@@ -275,7 +275,7 @@
 			Return
 	; Disable All Keys Alt+L
 	; https://www.autohotkey.com/boards/viewtopic.php?t=33925
-		lock(f=0, mouse=0, message:="🔒") { 
+		lock(f=0, mouse=0, message:="🔒") {
 			static allkeys, ExcludeKeys:="LButton,RButton"
 			if !allkeys
 			{
@@ -302,7 +302,7 @@
 		}
 		!l::
 			locktog := !locktog
-			if (locktog = "1") 
+			if (locktog = "1")
 			{
 				lock(1,1)
 			}

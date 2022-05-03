@@ -1,0 +1,87 @@
+#!/c/MAMP/bin/ruby/bin/ruby.exe
+# !/usr/env/bin ruby :(
+
+# File:       cl
+# Author:     Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:  2022-04-20
+# Desciption: Script to clock in and out at work, track hours, etc.
+
+# Require
+require 'date'
+
+# Global Vars
+$day_of_the_week_num = Time.now.strftime("%u")
+$day_of_the_week_name = Time.now.strftime("%A")
+$date_csv = Time.now.strftime("%d-%m-%Y")
+$time_csv = Time.now.strftime("%H:%M")
+$week_csv = Time.now.strftime("%V") # week, 01..53
+
+
+def usage
+  puts
+  puts "  -----------------------"
+  puts "  CL - Track Hours Worked"
+  puts "  -----------------------"
+  puts
+  puts "  in         clock in at this time"
+  puts "  out        clock out at this time"
+  puts "  fill       clock in and out, a standard day"
+  puts
+end
+
+def start_of_the_week(input_date:)
+  curr = Time.now.strftime("%u")
+end
+
+def l_array(str_line:,col:)
+  # split into array
+    str_line_values = str_line.split(",")
+    return str_line_values[col]
+    # week_number = 0
+    # day_of_the_week = 1
+    # full_date = 2
+    # clock_in_time = 3
+    # clock_out_time = 4
+end
+
+def find_row(action:)
+  puts "Taking action '" + action + "'."
+  File.open($log_file, "r") do |f|
+    f.each_line do |l|
+      if $week_csv == l_array(str_line:l,col:0)
+        puts $date_csv + " and " + l_array(str_line:l,col:2)
+        if $date_csv == l_array(str_line:l,col:2)
+          puts "This is today, in fact..."
+          row_exists = true
+        end
+      end
+    end
+  end
+end
+
+def main
+# Handle Args
+
+  now = Date.today
+  puts now - (now.wday + 1)
+
+  exit
+
+
+  case ARGV[0]
+  when "in"
+    find_row(action:"in")
+    new_week if File.file?($log_file)
+  when "out"
+    find_row(action:"out")
+  when "fill"
+    find_row(action:"fill")
+  else
+    usage
+    exit
+  end
+end
+
+main
+
+# vi: ft=ruby
