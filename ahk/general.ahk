@@ -36,6 +36,8 @@
 	; Enter to start custom CMD
 		#IfWinNotActive, ahk_class Microsoft Excel
       !Enter:: Run "C:\cmd\bat\cmdrc.bat"
+  ; Powershell
+    #Enter:: Run "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 	; Start Enter to Run Git Bash
 		#!Enter:: Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Git\Git Bash"
 	; Run Firefox with Alt+F

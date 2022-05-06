@@ -1,33 +1,34 @@
+
+# ~~~~~~~~~~~~~~~~~~~~~~ POWERSHELL CONFIGURATION FILE ~~~~~~~~~~~~~~~~~~~~~~~ #
+
 # File:       psrc.ps1
 # Author:     Julian Orchard [hello@julianorchard.co.uk]
 # Tag Added:  2022-02-24
 # Desciption: Powershell Config File
 
-# PS Prompt
-  function prompt 
-  {
-    $dateTime = get-date -Format "HH:mm:ss"
-    $currentDir = $(Get-Location)
-    " $ Time: $dateTime
-    $currentDir PowerShell > "
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
+
+
+#                                  PS PROMPT                                   #
+  function prompt {
+    " $ $(Split-Path -Path (Get-Location) -Leaf) > "
   }
 
-# Set Wallpaper Function, From
-# https://techexpert.tips/powershell/powershell-configure-wallpaper/
-  function Set-Wallpaper($MyWallpaper)
-  {
+
+#                         SET WALLPAPER FUNCTION, FROM                         #
+#     https://techexpert.tips/powershell/powershell-configure-wallpaper/
+  function Set-Wallpaper($MyWallpaper) {
   $code = @' 
   using System.Runtime.InteropServices; 
   namespace Win32{ 
+    public class Wallpaper{ 
+      [DllImport("user32.dll", CharSet=CharSet.Auto)] 
+      static extern int SystemParametersInfo (int uAction , int uParam , string lpvParam , int fuWinIni) ; 
       
-      public class Wallpaper{ 
-          [DllImport("user32.dll", CharSet=CharSet.Auto)] 
-          static extern int SystemParametersInfo (int uAction , int uParam , string lpvParam , int fuWinIni) ; 
-          
-          public static void SetWallpaper(string thePath){ 
-              SystemParametersInfo(20,0,thePath,3); 
-          }
+      public static void SetWallpaper(string thePath){ 
+        SystemParametersInfo(20,0,thePath,3); 
       }
+    }
   } 
 '@
 
@@ -35,8 +36,10 @@
   [Win32.Wallpaper]::SetWallpaper($MyWallpaper)
   }
 
-  # Shortcut Functions: 
-  # https://stackoverflow.com/questions/484560/editing-shortcut-lnk-properties-with-powershell
+
+#                             SHORTCUT FUNCTIONS:                              #
+#               https://stackoverflow.com/questions/484560/
+#               editing-shortcut-lnk-properties-with-powershell
   function Get-Shortcut {
     param(
       $path = $null
@@ -93,7 +96,7 @@
     }
   }
 
-# Return Readable Numbers from 0-99
+#                      RETURN READABLE NUMBERS FROM 0-99                       #
   function Readable-Numbers($InputNumber,$NumberFormat) 
   {
   # Single Digits
@@ -154,7 +157,7 @@
             8 { $ReadableNumber = "Eighty" }
             9 { $ReadableNumber = "Ninety" }
          }
-        # Add Dash or Not
+        # Hyphenation
           if ("$i2" -ne "0")
           {
             $ReadableNumber += "-"
@@ -177,19 +180,25 @@
         Two-Digit($in)
       }
       default {
-      # This is all it can handle
+      # This is all it can handle... for now!
         return ""
       }
     }
   }
 
-# PS Aliases
+#                                  PS ALIASES                                  #
+  # From CMDrc.bat
   function dev { cd C:\CMD }
   function home { cd ~ }
   function ll { ls }
+  # Web Dev Locations
   function uk { cd "~\Documents\Website\2) UK Site\" }
   function us { cd "~\Documents\Website\3) Export\US Site" }
   function ca { cd "~\Documents\Website\3) Export\CA Site" }
-  function eu { cd "~\Documents\Website\3) Export\EU Site" }
+  function eu { cd "~\Documents\Website\3) Export\EU Site" } 
+  # Nvim
+  function nvim { C:\cmd\bin\nvim\bin\nvim.exe $args }
+  
 
- 
+#                              START IN HOME DIR                               #
+  cd $env:userprofile

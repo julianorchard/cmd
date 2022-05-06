@@ -21,6 +21,7 @@ shortcuts
 **.exe
 bin/*.xml
 bin/*.icc
+bin/**/*
 # ------------------------------------------------------
 # Wallpapers: no need for .bmp or submodule ------------
 wallpapers/files/**
