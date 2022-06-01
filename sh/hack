@@ -1,0 +1,49 @@
+#!/c/MAMP/bin/ruby/bin/ruby.exe
+
+# File:        hack
+# Author:      Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:   2022-06-01
+# Description: Makes it look like you're hacking, for fun!
+
+
+def finish_hack()
+    puts "\nHack progress at 100%."
+    puts "\n\n   --->>   HACK OF '" + ARGV.join(" ").upcase + "' COMPLETE.\n"
+    exit
+end
+
+def main
+  na = ["5","11","19","30","36","41","52","69","74","88","96","99","100"]
+  c = 0
+  loop do
+    begin
+    # Having problems with running Ruby sleep on Cygwin
+      sleep(1.0/5.0)
+    # This seems to work... but not very well at all.
+      case rand(8)
+      when 0..5
+        lc = rand(5..12)
+        i = 0
+        puts "\n"
+        loop do
+          i = i + 1
+          puts ('!'..'~').to_a.shuffle[0,rand(7..200)].join
+          break if i == lc
+        end
+      when 6
+        puts "\nGenerating hack string...\n"
+      when 7
+        finish_hack(inter:false) if na[c] == "100"
+        puts "\nThe Hack Is Currently Ongoing."
+        puts "Please do not touch the keyboard until the time is right."
+        puts "\nHack progress at " + na[c] + "%.\n\n"
+        c = c + 1
+      end
+    # Handle Ctrl + C
+    rescue Interrupt => e
+      finish_hack(inter:true)
+    end
+  end
+end
+
+main
