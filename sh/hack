@@ -47,3 +47,5 @@ def main
 end
 
 main
+
+# vi: ft=ruby
