@@ -1,10 +1,10 @@
-#!/c/MAMP/bin/ruby/bin/ruby.exe 
+#!/c/MAMP/bin/ruby/bin/ruby.exe
 #####!/usr/bin/env ruby :(
 
 #   File:        tidy
 #   Author:      Julian Orchard <hello@julianorchard.co.uk>
 #   Tag Added:   2022-04-22
-#   Description: Ruby script to rename files that have been 
+#   Description: Ruby script to rename files that have been
 #                mauled by Windows File Explorer's bulk
 #                renaming, e.g. (file (1).jpg, file (2).jpg, etc.)
 
@@ -31,7 +31,7 @@ end
 
 def tidy
   current_dir = Dir.pwd
-  b_flag = s_flag = l_flag = false
+  b_flag = s_flag = l_flag = e_flag = false
 
 # Help
   usage if ARGV.include? "h" or ARGV.empty?
@@ -76,12 +76,12 @@ def tidy
       when /\.cmd/
         file_rename = file_rename.gsub(".cmd", ".bat")
       end
-    end 
+    end
 
   # Rename, Output
     File.rename(current_file, current_dir + "/" + file_rename)
     puts "    ->  " + current_file + "  =>  " + file_rename
-  end 
+  end
   puts
 end
 
