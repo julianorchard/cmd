@@ -16,6 +16,10 @@ $date_csv = Time.now.strftime("%d-%m-%Y")
 $time_csv = Time.now.strftime("%H:%M")
 $week_csv = Time.now.strftime("%V") # week, 01..53
 
+$this_day = Date.today
+$start_of_the_week = Date.today - (Date.today.wday + 1)
+$log_file = "#$start_of_the_week.txt"
+
 
 def usage
   puts
@@ -59,21 +63,34 @@ def find_row(action:)
   end
 end
 
+def new_week(action:)
+  if action == "out"
+    puts "You can't clock out if you've not clocked in yet"
+    exit
+  end
+  puts "Recording a new day, a new week, a new life... for you."
+  if $start_of_the_week == $this_day
+    puts "Easy"
+  else
+    puts "Do you want to fill in the week up\nuntil now as holiday, or manually? (Y/n) "
+    what_do = gets.chomp()
+    if what_do == "y"
+      puts "true"
+    else
+      puts "faulse"
+    end
+  end
+end
+
 def main
 # Handle Args
-
-  now = Date.today
-  puts now - (now.wday + 1)
-
-  exit
-
-
   case ARGV[0]
   when "in"
-    find_row(action:"in")
-    new_week if File.file?($log_file)
+    new_week(action:"in") if not File.file?($log_file)
+    # find_row(action:"in")
   when "out"
-    find_row(action:"out")
+    new_week(action:"out") if not File.file?($log_file)
+    # find_row(action:"out")
   when "fill"
     find_row(action:"fill")
   else

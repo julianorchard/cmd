@@ -44,6 +44,7 @@
 		!f::Run, "C:\Program Files\Mozilla Firefox\firefox.exe"
     #!e::Run, "C:\Users\%A_UserName%\Documents\Applications\emacs\bin\runemacs.exe"
 
+
 ; Snipping Tool and Drawing
 	; Print Screen Opens 'Snipping Tool'
 		$PrintScreen::
