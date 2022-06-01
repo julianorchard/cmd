@@ -25,11 +25,11 @@ just add all the important folders to PATH.
 ## Features
 
 Some of the folders don't contain much interesting stuff, but I'll mention some
-of the most used/important scripts below: 
+of the most used/important scripts below:
 
 ### Hours (`\hours`)
 
-![usage of cl command](hours/screenshot.png)
+![usage of cl command](hours/archive/screenshot.png)
 
 This is a VBScript program that writes my hours to a CSV file and just lets me
 track hours worked very easily from the command line. More information is in the
@@ -38,13 +38,13 @@ folder.
 ### Language Folders
 
 This repo mainly contains Batch, Powershell,
-AutoHotkey, and some Shell/Ruby/Unix-y scripts: 
+AutoHotkey, and some Shell/Ruby/Unix-y scripts:
 
 #### AutoHotkey (`\ahk`)
 
 There's quite a lot in this folder, but it's mainly all in `General.ahk`; feel
 free to have a read of the file as it's *fairly* well annotated. Some of the
-features of this file include: 
+features of this file include:
 
 - Drawing boxes around stuff with `Alt + B`, and
     underline stuff with `Alt + U` (*very* useful for the
@@ -58,7 +58,7 @@ features of this file include:
 #### Batch Scripts (`\bat`)
 
 Unsurprisingly, `\bat` mainly contains Batch
-Scripts, including: 
+Scripts, including:
 
 - `amiconnected.bat`, checks network connection
 via ping; notifies when connection seems to be
@@ -77,7 +77,7 @@ pingable
 
 More recently I've been using Mintty more than
 CMD/Powershell, and as a result, I've been writing
-more Unix-y scripts. This is where they're stored. 
+more Unix-y scripts. This is where they're stored.
 
 - `tidy`, a Ruby script I use to rename files that
 have been mauled by Windows File Explorer's bulk
