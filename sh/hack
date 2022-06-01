@@ -6,7 +6,7 @@
 # Description: Makes it look like you're hacking, for fun!
 
 
-def finish_hack()
+def finish_hack
     puts "\nHack progress at 100%."
     puts "\n\n   --->>   HACK OF '" + ARGV.join(" ").upcase + "' COMPLETE.\n"
     exit
@@ -33,7 +33,7 @@ def main
       when 6
         puts "\nGenerating hack string...\n"
       when 7
-        finish_hack(inter:false) if na[c] == "100"
+        finish_hack if na[c] == "100"
         puts "\nThe Hack Is Currently Ongoing."
         puts "Please do not touch the keyboard until the time is right."
         puts "\nHack progress at " + na[c] + "%.\n\n"
@@ -41,7 +41,7 @@ def main
       end
     # Handle Ctrl + C
     rescue Interrupt => e
-      finish_hack(inter:true)
+      finish_hack
     end
   end
 end
