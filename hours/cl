@@ -1,24 +1,21 @@
 #!/c/MAMP/bin/ruby/bin/ruby.exe
 # !/usr/env/bin ruby :(
 
-# File:       cl
-# Author:     Julian Orchard <hello@julianorchard.co.uk>
-# Tag Added:  2022-04-20
-# Desciption: Script to clock in and out at work, track hours, etc.
+# File:        cl
+# Author:      Julian Orchard <hello@julianorchard.co.uk>
+# Tag Added:   2022-04-20
+# Desciption:  Script to clock in and out at work, track hours, etc.
+# Restriction:
+#  - Take no input other than the initial command (e.g., no 'STDIN.gets')
+#  - Data should either be exported or displayed on the command line only
+#  - Only use the standard Ruby library (system limitations...)
 
-# Require
 require 'date'
 
-# Global Vars
-$day_of_the_week_num = Time.now.strftime("%u")
-$day_of_the_week_name = Time.now.strftime("%A")
-$date_csv = Time.now.strftime("%d-%m-%Y")
-$time_csv = Time.now.strftime("%H:%M")
-$week_csv = Time.now.strftime("%V") # week, 01..53
-
-$this_day = Date.today
-$start_of_the_week = Date.today - (Date.today.wday + 1)
-$log_file = "#$start_of_the_week.txt"
+$time_now = Time.now.strftime("%H:%M")
+$date_now = Date.today # YYYY-mm-dd
+$week_now = Date.today - (Date.today.wday + 1)
+$log_file = File.expand_path(File.dirname(__FILE__)) + "/log/wc_#$week_now.csv"
 
 
 def usage
@@ -33,70 +30,92 @@ def usage
   puts
 end
 
-def start_of_the_week(input_date:)
-  curr = Time.now.strftime("%u")
-end
+# def week_now(input_date:)
+#   curr = Time.now.strftime("%u")
+# end
 
-def l_array(str_line:,col:)
-  # split into array
-    str_line_values = str_line.split(",")
-    return str_line_values[col]
-    # week_number = 0
-    # day_of_the_week = 1
-    # full_date = 2
-    # clock_in_time = 3
-    # clock_out_time = 4
-end
+# def l_array(str_line:,col:)
+#   # split into array
+#     str_line_values = str_line.split(",")
+#     return str_line_values[col]
+#     # week_number = 0
+#     # day_of_the_week = 1
+#     # full_date = 2
+#     # clock_in_time = 3
+#     # clock_out_time = 4
+# end
 
-def find_row(action:)
-  puts "Taking action '" + action + "'."
-  File.open($log_file, "r") do |f|
-    f.each_line do |l|
-      if $week_csv == l_array(str_line:l,col:0)
-        puts $date_csv + " and " + l_array(str_line:l,col:2)
-        if $date_csv == l_array(str_line:l,col:2)
-          puts "This is today, in fact..."
-          row_exists = true
-        end
-      end
-    end
-  end
-end
+# def find_row(action:)
+#   puts "Taking action '" + action + "'."
+#   File.open($log_file, "r") do |f|
+#     f.each_line do |l|
+#       if $week_csv == l_array(str_line:l,col:0)
+#         puts $date_csv + " and " + l_array(str_line:l,col:2)
+#         if $date_csv == l_array(str_line:l,col:2)
+#           puts "This is today, in fact..."
+#           row_exists = true
+#         end
+#       end
+#     end
+#   end
+# end
+
+# def fill_days(start_date:,end_date:)
+#   File.open($log_file, "w") do |f|
+#     dtw = start_date
+#     loop do
+#       f.write ""
+#       break if dtw == end_date
+#     end
+#   end
+# end
 
 def new_week(action:)
-  if action == "out"
-    puts "You can't clock out if you've not clocked in yet"
-    exit
-  end
-  puts "Recording a new day, a new week, a new life... for you."
-  if $start_of_the_week == $this_day
-    puts "Easy"
-  else
-    puts "Do you want to fill in the week up\nuntil now as holiday, or manually? (Y/n) "
-    what_do = gets.chomp()
-    if what_do == "y"
-      puts "true"
-    else
-      puts "faulse"
+  # Record a new week
+  if true # for now
+  # if $week_now == $this_day
+    puts "Creating a new log, '" + $log_file + "'."
+    File.open("#$log_file", "w") do |lf|
+      lf.puts("#$date_now,#$time_now,")
     end
+    puts "Clocked in at #$time_now for the date #$date_now."
+  else
+    # tbc: fill in days automatically
+    #      if not the first day of the week
+    fill_days(start_date:$week_now,end_date:$this_day-1)
   end
 end
 
 def main
-# Handle Args
-  case ARGV[0]
-  when "in"
-    new_week(action:"in") if not File.file?($log_file)
-    # find_row(action:"in")
-  when "out"
-    new_week(action:"out") if not File.file?($log_file)
-    # find_row(action:"out")
-  when "fill"
-    find_row(action:"fill")
+  case ARGV.length
+  when 1
+    # in/out/fill
+    if !File.file?($log_file)
+      new_week(action:ARGV[0])
+      exit
+    else
+      add_date
+    end
+
+  when 2
+    # in|out|fill AND date|time
+    puts "it's 2"
+
+  when 3
+    # in|out|fill AND date|time AND date|time,
+    # but not whatever 2 was
+    puts "it's 3"
+
   else
-    usage
-    exit
+    # if logfile doesn't exist, usage
+    if not File.file?($log_file)
+      usage
+    else
+    # else, week progress
+      week_progress
+    end
   end
+
 end
 
 main
