@@ -88,7 +88,7 @@ Sleep, 200
 MouseClickDrag, left, X4, Y1, X4, Y4
 Return
 
-; Line Break / <hr>'s - - - - - - - - - - - - - - - 
+; Line Break / <hr>'s - - - - - - - - - - - - - - -
 
 ; = Insert  -+-  -+-  -+-  -+-  -+-  -+-  -+-  -+-
 !=::
@@ -189,18 +189,18 @@ Return
 !F12::
 WinExist("ahk_class Shell_TrayWnd")
 Tog := !Tog
-if (Tog = "1")
+If (Tog = "1")
 {
 	SetTimer, CheckForBar, 1000
 CheckForBar:
-	if WinExist("ahk_class Shell_TrayWnd")
+	If WinExist("ahk_class Shell_TrayWnd")
 	{
 		WinHide, ahk_class Shell_TrayWnd
 		WinHide, Start ahk_class Button
 	}
 	Return
 }
-else
+Else
 {
 	SetTimer, CheckForBar, Off
 	WinShow, ahk_class Shell_TrayWnd
@@ -273,7 +273,7 @@ EModeEscape:
 ; enforced screensaver
 !i::
 idltog := !idltog
-if (idltog = "1")
+If (idltog = "1")
 {
 	TrayTip, Screen Refresher On, The screen refresher has been enabled.
 	SetTimer, KeepAlive, 15000
@@ -281,7 +281,7 @@ KeepAlive:
 	Send, {RAlt}
 	Return
 }
-else
+Else
 {
 	TrayTip, Screen Refresher Off, The screen refresher has been disabled.
 	SetTimer, KeepAlive, Off ; Turn off the timer
@@ -292,7 +292,7 @@ Return
 ; https://www.autohotkey.com/boards/viewtopic.php?t=33925
 lock(f=0, mouse=0, message:="🔒") {
 	static allkeys, ExcludeKeys:="LButton,RButton"
-	if !allkeys
+	If !allkeys
 	{
 		s:="||NumpadEnter|Home|End|PgUp|PgDn|Left|Right|Up|Down|Del|Ins|"
 		Loop, 254
@@ -317,12 +317,142 @@ Block_Input:
 }
 !l::
 locktog := !locktog
-if (locktog = "1")
+If (locktog = "1")
 {
 	lock(1,1)
 }
-else
+Else
 {
 	lock(0)
+}
+Return
+
+; Basically just toggles those lock keys on and off
+; rhythmically. This requires your keyboard to HAVE
+; some illuminated bits for these keys, which mine
+; does, and in the order 'NumL', 'CapsL', 'ScrollL'
+
+; Ctrl+Start+m
+; Similar to the Black Mirror titlescreen
+$^#l::
+SetStoreCapsLockMode, off
+a := "{NumLock}"
+b := "{CapsLock}"
+c := "{ScrollLock}"
+SetNumLockState, off
+SetCapsLockState, off
+SetScrollLockState, off
+; Starts here
+ql := 1000
+Loop, 8
+{
+  Send, %a%
+  Sleep, %ql%
+  Send, %a%
+  Send, %b%
+  Sleep, %ql%
+  Send, %b%
+  Send, %c%
+  Sleep, %ql%
+  Send, %c%
+  ql := ql/2
+}
+Sleep, 200
+Send, %a%
+Send, %b%
+Send, %c%
+Sleep, 50
+Send, %a%
+Send, %b%
+Send, %c%
+Sleep, 100
+Send, %a%
+Send, %b%
+Send, %c%
+Sleep, 50
+Send, %a%
+Send, %b%
+Send, %c%
+Return
+; Ctrl+Start+w:
+; William Tell Overture-ish
+$^#w::
+SetStoreCapsLockMode, off
+a := "{NumLock}"
+b := "{CapsLock}"
+c := "{ScrollLock}"
+SetNumLockState, off
+SetCapsLockState, off
+SetScrollLockState, off
+; Song from here
+count := 1
+Loop, 3
+{
+  Loop, 3
+  {
+  ; Main 'da da dam' bit
+    Sleep, 100
+    Send, %c%
+    Sleep, 60
+    Send, %c%
+    Send, %b%
+    Sleep, 60
+    Send, %b%
+    Send, %a%
+    Sleep, 60
+    Send, %a%
+  }
+  If (count == 1)
+  {
+    Sleep, 200
+    Send, %c%
+    Sleep, 200
+    Send, %c%
+    Send, %b%
+    Sleep, 200
+    Send, %b%
+  }
+  Else If (count == 2)
+  {
+
+    Sleep, 200
+    Send, %b%
+    Sleep, 200
+    Send, %b%
+    Send, %a%
+    Sleep, 200
+    Send, %a%
+  }
+  Else
+  {
+    Sleep, 200
+    Send, %a%
+    Sleep, 200
+    Send, %a%
+    Send, %b%
+    Sleep, 200
+    Send, %b%
+    Send, %a%
+    Sleep, 100
+    Send, %b%
+    Sleep, 100
+    Send, %c%
+    Sleep, 800
+    ; very slow rit.
+    Send, %c%
+    Sleep, 200
+    Send, %b%
+    Sleep, 200
+    Send, %a%
+    Sleep, 400
+    Send, %a%
+    Send, %b%
+    Send, %c%
+    Sleep, 400
+    Send, %a%
+    Send, %b%
+    Send, %c%
+  }
+  count := count+1
 }
 Return
